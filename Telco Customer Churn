@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andre Viana | Data Analytics Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Andre Viana</h1>
+    <p>Data Analyst | Google Data Analytics Certified</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="telco">
+    <h1>Telco Customer Churn</h1>
+    <h2>Introduction</h2>
+    <p>This analysis explores customer churn in a telecommunications company. The goal is to identify factors that contribute to customer churn and recommend strategies to reduce it.</p>
+    
+    <h2>Key Insights</h2>
+    <ul>
+      <li>Customers on month-to-month contracts have the highest churn rate.</li>
+      <li>Customers with higher monthly charges are more likely to churn.</li>
+      <li>Long-term contracts (1- or 2-year) help improve retention.</li>
+      <li>Internet type and tech support availability may also influence churn.</li>
+    </ul>
+
+    <h2>Recommendations</h2>
+    <ul>
+      <li>Encourage customers to switch to longer-term contracts using incentives.</li>
+      <li>Offer discounts or personalized plans for customers with high monthly charges.</li>
+      <li>Provide better customer support to Fiber optic users.</li>
+    </ul>
+
+    <p><a href="index.html">← Back to Home</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Andre Viana | Built with GitHub Pages</p>
+  </footer>
+</body>
+</html>
