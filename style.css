@@ -1,44 +1,91 @@
+/* Import a modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
-  background-color: #f9f9f9;
+  color: #333;
+  background-color: #f5f7fb;
+  line-height: 1.6;
 }
 
+/* ===== HEADER ===== */
 header {
-  background-color: #004aad;
+  background: linear-gradient(135deg, #004aad, #007bff);
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  margin-top: 1rem;
 }
 
 nav a {
+  display: inline-block;
   color: white;
-  margin: 0 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  margin: 0 5px;
+  border-radius: 6px;
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
+nav a:hover {
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: #004aad;
 }
 
+/* ===== SECTIONS ===== */
+section {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+section h2 {
+  color: #004aad;
+  border-bottom: 3px solid #004aad;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/* ===== PROJECT CARDS ===== */
 .project-card {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-left: 4px solid #004aad;
-  background: #f0f6ff;
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-left: 5px solid #004aad;
+  background: #eef4ff;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
-  padding: 1rem;
-  background: #004aad;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #004aad, #007bff);
   color: white;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
 }
