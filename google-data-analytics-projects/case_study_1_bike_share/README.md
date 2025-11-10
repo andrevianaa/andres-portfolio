@@ -58,4 +58,7 @@ This case study strengthened my skills in:
 ---
 
 ### 📁 Repository Structure
-
+data/ → Raw and cleaned datasets
+analysis/ → R/Python scripts and queries
+visuals/ → Charts and dashboards
+README.md → Project summary (this file)
