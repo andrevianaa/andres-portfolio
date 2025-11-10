@@ -7,8 +7,7 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 ---
 
 ### 🧩 Tools Used
-- Google Sheets
-- R
+- BigQuery
 - Tableau 
 
 ---
@@ -31,13 +30,15 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 4. **Process:** 
    - Removed missing values and outliers.
    - Added new calculated columns (ride_length, day_of_week, etc.).
+   - All queries are listed on the "case_study_1_bike_share/analysis" folder.
 
 5. **Analyze:** 
    - Compared average ride duration and frequency between user types.
    - Identified peak usage times and popular stations.
+   - All queries are listed on the "case_study_1_bike_share/analysis" folder.
 
 6. **Share:** 
-   - Created visualizations using Tableau/Matplotlib.
+   - Created visualizations using Tableau.
 
 7. **Act:** 
    - Suggested targeted marketing strategies to increase memberships.
@@ -45,9 +46,18 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 ---
 
 ### 📊 Key Findings
-- Annual members take shorter, more frequent rides.
-- Casual users ride longer on weekends.
+- Casual riders take 91% longer rides on average (23.8 min vs 12.5 min).
+- Casuals dominate weekends (43% of their rides vs 28% for members).
+- Members ride consistently throughout the week – ideal for commuting.
+- Peak casual months: June–August (summer leisure).
 - Converting weekend casuals with discounts could increase memberships.
+
+---
+
+### 📢 Top 3 Recommendations
+- Weekend-focused membership campaign – Offer a discounted “Weekend Warrior” annual pass at 50% off regular price during summer months to capture high casual weekend usage.
+- Long-ride incentive program – Give casual riders a free month of membership after 10 rides longer than 30 minutes (targets their longer average duration).
+- Digital media targeting – Run Instagram/Facebook ads on Friday–Sunday showing leisure routes (lakefront, parks) with tagline “Ride all weekend for one low price – upgrade to annual today.”
 
 ---
 
