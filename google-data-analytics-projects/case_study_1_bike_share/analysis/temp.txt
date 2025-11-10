@@ -1,1 +1,99 @@
+(All queries were made using Google BigQuery)
 
+PROCESS PHASE (Cleaning):
+
+CREATE OR REPLACE TABLE `cyclistic.trip_data_clean` AS
+WITH cleaned AS (
+  SELECT
+    ride_id,
+    rideable_type,
+    started_at,
+    ended_at,
+    start_station_name,
+    end_station_name,
+    member_casual,
+    -- Calculate ride length in minutes
+    DATETIME_DIFF(ended_at, started_at, MINUTE) AS ride_length_minutes,
+    -- Day of week (1=Sunday, 7=Saturday)
+    EXTRACT(DAYOFWEEK FROM started_at) AS day_of_week,
+    -- Month name
+    FORMAT_DATE('%B', DATE(started_at)) AS month,
+    -- Year-Month for grouping
+    FORMAT_DATE('%Y-%m', DATE(started_at)) AS year_month
+  FROM `cyclistic.2023*`  -- automatically grabs all 12 tables
+)
+SELECT *
+FROM cleaned
+WHERE 
+  ride_length_minutes > 1          -- remove rides ≤1 min (likely false starts)
+  AND ride_length_minutes < 1440   -- remove rides ≥24 hours (likely stolen/docked wrong)
+  AND started_at IS NOT NULL
+  AND ended_at IS NOT NULL
+  AND ride_id IS NOT NULL;
+
+Cleaning steps documented:
+
+- Removed rides ≤1 minute (5.2% of data) – likely false starts or testing
+- Removed rides ≥24 hours (0.08% of data) – likely bikes lost or docked incorrectly
+- Removed rows with NULL start/end times or ride_id
+- Created ride_length_minutes, day_of_week, month, year_month columns
+- Final clean dataset: 5,318,924 rides (91.4% retained)
+
+ANALYZE PHASE:
+
+- Query 1 – Total rides & average duration:
+
+SELECT 
+  member_casual,
+  COUNT(*) AS total_rides,
+  ROUND(AVG(ride_length_minutes),1) AS avg_duration_min,
+  ROUND(MAX(ride_length_minutes)/60,1) AS max_duration_hours
+FROM `cyclistic.trip_data_clean`
+GROUP BY member_casual;
+
+Results:
+
+member_casual,total_rides,avg_duration_min,max_duration_hours
+casual,"1,928,445",23.8,23.9
+member,"3,390,479",12.5,23.1
+
+- Query 2 – Rides by day of week:
+
+SELECT 
+  member_casual,
+  day_of_week,
+  CASE day_of_week 
+    WHEN 1 THEN 'Sunday'
+    WHEN 2 THEN 'Monday'
+    WHEN 3 THEN 'Tuesday'
+    WHEN 4 THEN 'Wednesday'
+    WHEN 5 THEN 'Thursday'
+    WHEN 6 THEN 'Friday'
+    WHEN 7 THEN 'Saturday'
+  END AS weekday,
+  COUNT(*) AS total_rides
+FROM `cyclistic.trip_data_clean`
+GROUP BY member_casual, day_of_week
+ORDER BY member_casual, day_of_week;
+
+Key finding: Casuals peak on weekends (Saturday 23%, Sunday 20%), members peak mid-week.
+
+- Query 3 – Average duration by day:
+
+SELECT 
+  member_casual,
+  weekday,
+  ROUND(AVG(ride_length_minutes),1) AS avg_duration_min
+FROM (
+  SELECT member_casual, ride_length_minutes,
+    CASE EXTRACT(DAYOFWEEK FROM started_at)
+      WHEN 1 THEN 'Sunday' WHEN 2 THEN 'Monday' WHEN 3 THEN 'Tuesday'
+      WHEN 4 THEN 'Wednesday' WHEN 5 THEN 'Thursday' WHEN 6 THEN 'Friday'
+      WHEN 7 THEN 'Saturday' END AS weekday
+  FROM `cyclistic.trip_data_clean`
+)
+GROUP BY member_casual, weekday
+ORDER BY member_casual,
+  FIELD(weekday, 'Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+
+Results: Casual rides are ~2x longer every day, especially weekends (casual Saturday: 28.4 min vs member 13.8 min).
