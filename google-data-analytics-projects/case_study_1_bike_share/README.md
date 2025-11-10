@@ -21,11 +21,11 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
    - Source: Divvy bike data (public datasets from [divvy-tripdata](https://divvy-tripdata.s3.amazonaws.com/index.html))
    - The dataset consists of 12 monthly CSV files (July 2023 – June 2024) containing 5,818,521 rides from Cyclistic’s historical trip data, made available by Motivate International Inc. under public license. Data is stored locally in  "case_study_1_bike_share/data” containing original CSVs and cleaned versions. The data follows the ROCCC framework and contains no personally identifiable information.
    - ROCCC check:
-      Reliable – First-party data from Cyclistic
-      Original – Directly from bike sensors
-      Comprehensive – Contains all needed fields
-      Current – Last 12 months (Jul 2023–Jun 2024)
-      Cited – Motivate International Inc., licensed for public use
+      + Reliable – First-party data from Cyclistic
+      + Original – Directly from bike sensors
+      + Comprehensive – Contains all needed fields
+      + Current – Last 12 months (Jul 2023–Jun 2024)
+      + Cited – Motivate International Inc., licensed for public use
    - Cleaned and combined 12 months of CSV files.
 
 4. **Process:** 
