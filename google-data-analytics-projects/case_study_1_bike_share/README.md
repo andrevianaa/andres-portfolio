@@ -45,6 +45,15 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 
 ---
 
+### 🖼️ Visuals
+![Number of Rides by Day of Week](visuals/sheet_1.png)
+![Average Ride Duration by Day of Week](visuals/sheet_2.png)
+![Total Rides Casual vs Member](visuals/sheet_3.png)
+![Average Ride Duration by Day of Week](visuals/sheet_2.png)
+![Cyclistic Bike-Share Case Study Dashboard](visuals/dashboard.png)
+
+---
+
 ### 📊 Key Findings
 - Casual riders take 91% longer rides on average (23.8 min vs 12.5 min).
 - Casuals dominate weekends (43% of their rides vs 28% for members).
@@ -61,15 +70,6 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 
 ---
 
-### 🖼️ Visuals
-![Number of Rides by Day of Week](visuals/sheet_1.png)
-![Average Ride Duration by Day of Week](visuals/sheet_2.png)
-![Total Rides Casual vs Member](visuals/sheet_3.png)
-![Average Ride Duration by Day of Week](visuals/sheet_2.png)
-![Cyclistic Bike-Share Case Study Dashboard](visuals/dashboard.png)
-
----
-
 ### 💡 Learnings
 This case study strengthened my skills in:
 - Cleaning large datasets
@@ -79,7 +79,7 @@ This case study strengthened my skills in:
 ---
 
 ### 📁 Repository Structure
-data/ → Raw and cleaned datasets
-analysis/ → R/Python scripts and queries
-visuals/ → Charts and dashboards
-README.md → Project summary (this file)
+- data/ → Raw and cleaned datasets
+- analysis/ → R/Python scripts and queries
+- visuals/ → Charts and dashboards
+- README.md → Project summary (this file)
