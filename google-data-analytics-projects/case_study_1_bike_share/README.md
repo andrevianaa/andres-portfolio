@@ -47,8 +47,6 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 
 ### 🖼️ Visuals
 ![Number of Rides by Day of Week](visuals/sheet_1.png)
-![Average Ride Duration by Day of Week](visuals/sheet_2.png)
-![Total Rides Casual vs Member](visuals/sheet_3.png)
 ![Cyclistic Bike-Share Case Study Dashboard](visuals/dashboard.png)
 
 ---
