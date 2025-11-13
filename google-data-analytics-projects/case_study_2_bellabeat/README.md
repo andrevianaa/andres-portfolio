@@ -1,71 +1,74 @@
-# 🚴‍♀️ Case Study 1: Cyclistic Bike-Share Analysis
+# ⌚ Case Study 2: Bellabeat Leaf Analysis
 
 ### 📘 Overview
 This project is part of the **Google Data Analytics Professional Certificate**.  
-The goal was to analyze Cyclistic’s bike-share data to understand how casual riders and annual members use bikes differently.
+The goal is to discover trends in smart-device usage, understand how these trends apply to Bellabeat customers.
 
 ---
 
 ### 🧩 Tools Used
 - Google Sheets
-- R
-- Tableau 
 
 ---
 
 ### 🔍 Steps in the Analysis
-1. **Ask:** What is the business problem?
-   - Understand how annual members and casual riders use Cyclistic bikes differently in order to design marketing strategies aimed at converting casual riders into annual members.
+**1. ASK PHASE (Deliverable: Clear Business Task)**
+
+Business Task: As a junior data analyst on the Bellabeat marketing analytics team, I have been asked to analyze smart-device usage data to gain insight into how consumers use non-Bellabeat smart devices. The goal is to discover trends in smart-device usage, understand how these trends apply to Bellabeat customers, and provide high-level recommendations that can influence Bellabeat’s marketing strategy for the Bellabeat Leaf product.
+
+Key stakeholders:
+- Urška Sršen (CCO & co-founder)
+- Sando Mur (co-founder & mathematician)
+- Bellabeat marketing analytics team
+
+Chosen Bellabeat product to focus on: Leaf (classic wellness tracker – bracelet/necklace/clip).
    
-2. **Prepare:** 
-   - Source: Divvy bike data (public datasets from [divvy-tripdata](https://divvy-tripdata.s3.amazonaws.com/index.html))
-   - The dataset consists of 12 monthly CSV files (July 2023 – June 2024) containing 5,818,521 rides from Cyclistic’s historical trip data, made available by Motivate International Inc. under public license. Data is stored locally in  "case_study_1_bike_share/data” containing original CSVs and cleaned versions. The data follows the ROCCC framework and contains no personally identifiable information.
-   - ROCCC check:
-      Reliable – First-party data from Cyclistic
-      Original – Directly from bike sensors
-      Comprehensive – Contains all needed fields
-      Current – Last 12 months (Jul 2023–Jun 2024)
-      Cited – Motivate International Inc., licensed for public use
-   - Cleaned and combined 12 months of CSV files.
+**2. PREPARE PHASE (Deliverable: Description of data sources)**
 
-4. **Process:** 
-   - Removed missing values and outliers.
-   - Added new calculated columns (ride_length, day_of_week, etc.).
+Dataset used: FitBit Fitness Tracker Data (CC0: Public Domain)
+Source: https://www.kaggle.com/datasets/arashnic/fitbit
+Made available by Möbius
+30 eligible Fitbit users, March 12, 2016 – May 12, 2016 (31 days)
 
-5. **Analyze:** 
-   - Compared average ride duration and frequency between user types.
-   - Identified peak usage times and popular stations.
+ROCCC check (you must write this):
+- Reliable – Medium (small sample, self-reported via Fitbit)
+- Original – High (direct from Fitbit users via Amazon Mechanical Turk)
+- Comprehensive – Medium (covers steps, calories, intensity, heart rate, sleep – but no demographics, no gender, no age)
+- Current – Low (data from 2016 – outdated for 2025 trends)
+- Cited – High (widely used in Google Data Analytics Certificate)
 
-6. **Share:** 
-   - Created visualizations using Tableau/Matplotlib.
+Limitations:
+Only 30 users (sample size too small for statistical significance)
+No demographic data (we don’t know if users are women – Bellabeat’s target)
+Data is 9 years old
+Only 31 days of data
 
-7. **Act:** 
-   - Suggested targeted marketing strategies to increase memberships.
+The primary dataset is the FitBit Fitness Tracker Data (CC0: Public Domain) from Kaggle, containing minute-level activity, heart rate, and sleep data for 30 Fitbit users over 31 days in 2016. While the dataset is original and well-cited, it has limitations: small sample size, lack of demographic information (especially gender), and outdated data. These limitations will be acknowledged in the final recommendations.
 
----
+**3. PROCESS PHASE**
 
-### 📊 Key Findings
-- Annual members take shorter, more frequent rides.
-- Casual users ride longer on weekends.
-- Converting weekend casuals with discounts could increase memberships.
+In BigQuery, I created cleaned versions of the main tables by converting string dates to proper DATE types, removing NULL step values, and creating aggregated views. I classified users into activity levels based on CDC guidelines (<5000 steps = sedentary, etc.). All cleaning steps are reproducible in the SQL script above.
 
----
+**4. ANALYZE PHASE**
 
-### 🖼️ Visuals
-![Ride Duration Chart](visuals/ride_duration_chart.png)
 
----
+**5. SHARE PHASE**
 
-### 💡 Learnings
-This case study strengthened my skills in:
-- Cleaning large datasets
-- Using Google Sheets and R for descriptive analysis
-- Building visuals using Tableau to communicate insights
 
----
+
+**6. ACT PHASE (High-level recommendations)**
+
+Top 3 final recommendations:
+
+- A. Target “Lightly Active” women with Leaf notifications
+   + 40% of users fall into 5,000–7,500 steps. Send personalized “You’re close to 7,500 steps!” nudges via the Bellabeat app to move them into “Fairly Active.”
+- B. Launch a “Reduce Sedentary Time” campaign
+   + Users spend ~16.5 hours sedentary daily. Promote Leaf’s sedentary alerts and hourly movement reminders in social media ads targeting office workers.
+- C. Improve sleep tracking adoption
+   + Only 24/33 users logged sleep. Highlight Leaf’s superior sleep accuracy vs Fitbit in YouTube ads and create a “Sleep Better Challenge” inside the Bellabeat membership program.
 
 ### 📁 Repository Structure
 data/ → Raw and cleaned datasets
-analysis/ → R/Python scripts and queries
+analysis/ → Google Sheets analysis
 visuals/ → Charts and dashboards
 README.md → Project summary (this file)
