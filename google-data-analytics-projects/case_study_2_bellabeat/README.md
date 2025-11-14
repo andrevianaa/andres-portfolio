@@ -51,11 +51,11 @@ In BigQuery, I created cleaned versions of the main tables by converting string 
 
 **4. ANALYZE PHASE**
 
-[analysis folder](analysis/)
+📁 [analysis folder](analysis/)
 
 **5. SHARE PHASE**
 
-[visuals folder](visuals/)
+📁 [visuals folder](visuals/)
 
 **6. ACT PHASE (High-level recommendations)**
 
