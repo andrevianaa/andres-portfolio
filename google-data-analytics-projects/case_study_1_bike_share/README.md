@@ -72,13 +72,13 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 ### 💡 Learnings
 This case study strengthened my skills in:
 - Cleaning large datasets
-- Using Google Sheets and R for descriptive analysis
+- Using BigQuery for descriptive analysis
 - Building visuals using Tableau to communicate insights
 
 ---
 
 ### 📁 Repository Structure
 - data/ → Raw and cleaned datasets
-- analysis/ → R/Python scripts and queries
+- analysis/ → BigQuery analysis
 - visuals/ → Charts and dashboards
 - README.md → Project summary (this file)
