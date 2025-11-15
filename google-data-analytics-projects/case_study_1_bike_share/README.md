@@ -54,8 +54,7 @@ The goal was to analyze Cyclistic’s bike-share data to understand how casual r
 ---
 
 ### 📊 Key Findings
-- Casual riders take 91% longer rides on average (23.8 min vs 12.5 min).
-- Casuals dominate weekends (43% of their rides vs 28% for members).
+- Casual riders take longer rides on average.
 - Members ride consistently throughout the week – ideal for commuting.
 - Peak casual months: June–August (summer leisure).
 - Converting weekend casuals with discounts could increase memberships.
