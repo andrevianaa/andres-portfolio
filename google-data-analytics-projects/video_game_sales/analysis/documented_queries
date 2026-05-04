@@ -1,0 +1,15 @@
+WITH TotalSales AS (
+  SELECT 
+    SUM(NA_Sales) as total_na,
+    SUM(EU_Sales) as total_eu,
+    SUM(JP_Sales) as total_jp
+  FROM `vocal-catalyst-462520-v9.sales_analysis.video_game_sales`
+)
+SELECT 
+  Genre,
+  ROUND(SUM(NA_Sales) / (SELECT total_na FROM TotalSales) * 100, 2) as na_share_pct,
+  ROUND(SUM(EU_Sales) / (SELECT total_eu FROM TotalSales) * 100, 2) as eu_share_pct,
+  ROUND(SUM(JP_Sales) / (SELECT total_jp FROM TotalSales) * 100, 2) as jp_share_pct
+FROM `vocal-catalyst-462520-v9.sales_analysis.video_game_sales`
+GROUP BY Genre
+ORDER BY jp_share_pct DESC;
